@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { changeLanguage } from "@/i18n";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { Redirect } from "expo-router";
 
 export default function HomeScreen() {
   const { i18n, t } = useTranslation();
@@ -25,6 +26,8 @@ export default function HomeScreen() {
     };
     loadLanguage();
   }, [i18n]);
+
+  return <Redirect href={"/(auth)/login"} />;
 
   return (
     <ParallaxScrollView
